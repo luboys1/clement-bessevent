@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 
+═══════════════════════════════════════════════════════════════════
+    🎯 VARIABLES À MODIFIER - Changez uniquement ces valeurs
+═══════════════════════════════════════════════════════════════════
+-->
+
+<script>
+// 👤 INFORMATIONS PERSONNELLES
+const CONFIG = {
+    nom: "Clément",                           // ← Changez le nom ici
+    metier: "résponsable production technique",                           // ← Changez le métier ici
+    email: "clement@bess-event.fr",           // ← Changez l'email ici
+    telephone: "+33 6 52 08 40 22",            // ← Changez le téléphone ici
+    
+    // 🖼️ IMAGE (URL complète)
+    imageUrl: "https://github.com/luboys1/bessevent/blob/main/main/images.png",
+    
+    // 🔗 LIENS RÉSEAUX SOCIAUX
+    linkedinUrl: "https://www.linkedin.com/in/clément-davanture-a89306151/",
+    instagramUrl: "https://www.instagram.com/malik_m.u.s.i.k/",
+    siteWebUrl: "https://www.bess-event.fr",
+    
+    // 🎨 TITRE DE LA PAGE
+    titreOnglet: "Clément Bess-event"         // ← Titre qui apparaît dans l'onglet du navigateur
+};
+</script>
+
+<!-- 
+═══════════════════════════════════════════════════════════════════
+    ⚠️ NE MODIFIEZ RIEN EN DESSOUS DE CETTE LIGNE
+═══════════════════════════════════════════════════════════════════
+-->
+
+<title></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Poppins', sans-serif;
+background: #0a0a0a;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+padding: 20px 15px;
+position: relative;
+overflow-x: hidden;
+}
+
+body::before {
+content: '';
+position: fixed;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: 
+radial-gradient(circle at 30% 20%, rgba(173, 129, 26, 0.3) 0%, transparent 40%),
+radial-gradient(circle at 70% 60%, rgba(218, 165, 32, 0.2) 0%, transparent 40%),
+radial-gradient(circle at 50% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%);
+animation: rotate 20s linear infinite;
+pointer-events: none;
+z-index: 0;
+}
+
+@keyframes rotate {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+.particle {
+position: fixed;
+width: 3px;
+height: 3px;
+background: rgba(218, 165, 32, 0.6);
+border-radius: 50%;
+pointer-events: none;
+z-index: 1;
+animation: float 15s infinite;
+box-shadow: 0 0 10px rgba(218, 165, 32, 0.8);
+}
+
+@keyframes float {
+0%, 100% {
+transform: translateY(0) translateX(0);
+opacity: 0;
+}
+10% { opacity: 1; }
+90% { opacity: 1; }
+100% {
+transform: translateY(-100vh) translateX(50px);
+opacity: 0;
+}
+}
+
+.container {
+width: 100%;
+max-width: 680px;
+text-align: center;
+position: relative;
+z-index: 2;
+animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.profile {
+margin-bottom: 30px;
+animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+from {
+opacity: 0;
+transform: translateY(-50px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.avatar {
+width: 140px;
+height: 140px;
+border-radius: 50%;
+background: linear-gradient(135deg, #ad811a 0%, #daa520 100%);
+margin: 0 auto 25px;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 
+0 0 30px rgba(218, 165, 32, 0.5),
+0 10px 40px rgba(0, 0, 0, 0.5);
+overflow: hidden;
+position: relative;
+padding: 5px;
+animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+0%, 100% {
+box-shadow: 
+0 0 30px rgba(218, 165, 32, 0.5),
+0 10px 40px rgba(0, 0, 0, 0.5);
+}
+50% {
+box-shadow: 
+0 0 50px rgba(218, 165, 32, 0.8),
+0 10px 50px rgba(0, 0, 0, 0.6);
+}
+}
+
+.avatar::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: conic-gradient(transparent, rgba(255, 215, 0, 0.3), transparent 30%);
+animation: rotate 4s linear infinite;
+}
+
+.avatar-inner {
+width: 100%;
+height: 100%;
+border-radius: 50%;
+overflow: hidden;
+position: relative;
+z-index: 1;
+background: #000;
+}
+
+.avatar-inner img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+h1 {
+color: white;
+font-size: 38px;
+margin-bottom: 10px;
+font-weight: 700;
+text-shadow: 0 0 20px rgba(218, 165, 32, 0.5);
+letter-spacing: 1px;
+}
+
+.job-title {
+color: rgba(255, 255, 255, 0.9);
+font-size: 20px;
+font-weight: 300;
+margin-bottom: 12px;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.contact-info {
+background: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(20px);
+border-radius: 20px;
+padding: 25px;
+margin-top: 25px;
+display: flex;
+flex-direction: column;
+gap: 15px;
+border: 1px solid rgba(218, 165, 32, 0.3);
+box-shadow: 
+0 8px 32px rgba(0, 0, 0, 0.3),
+inset 0 1px 0 rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
+}
+
+.contact-info::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: linear-gradient(45deg, transparent, rgba(218, 165, 32, 0.05), transparent);
+animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.contact-item {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+color: white;
+font-size: 15px;
+transition: all 0.3s ease;
+position: relative;
+z-index: 1;
+text-decoration: none;
+cursor: pointer;
+}
+
+.contact-item i {
+font-size: 20px;
+color: #daa520;
+transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+transform: translateX(8px);
+}
+
+.contact-item:hover i {
+transform: scale(1.2);
+filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.8));
+}
+
+.links {
+display: flex;
+flex-direction: column;
+gap: 18px;
+}
+
+.link-button {
+background: rgba(255, 255, 255, 0.08);
+backdrop-filter: blur(10px);
+color: white;
+text-decoration: none;
+padding: 20px 28px;
+border-radius: 16px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 14px;
+font-size: 17px;
+font-weight: 600;
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+border: 1px solid rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
+opacity: 0;
+animation: slideIn 0.6s ease-out forwards;
+}
+
+.link-button:nth-child(1) { animation-delay: 0.2s; }
+.link-button:nth-child(2) { animation-delay: 0.3s; }
+.link-button:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+from {
+opacity: 0;
+transform: translateX(-50px);
+}
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+.link-button::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+transition: left 0.5s ease;
+}
+
+.link-button:hover::before {
+left: 100%;
+}
+
+.link-button:hover {
+transform: translateY(-5px) scale(1.02);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+border-color: rgba(218, 165, 32, 0.5);
+}
+
+/* Meilleure interaction tactile mobile */
+@media (hover: none) and (pointer: coarse) {
+.link-button:hover {
+transform: none;
+}
+
+.link-button:active {
+transform: scale(0.97);
+}
+
+.contact-item:hover {
+transform: none;
+}
+}
+
+.link-button i {
+font-size: 24px;
+transition: all 0.3s ease;
+}
+
+.link-button:hover i {
+transform: scale(1.2) rotate(5deg);
+}
+
+.link-button:active {
+transform: translateY(-3px) scale(0.98);
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.link-button:active i {
+animation: clickBounce 0.4s ease;
+}
+
+@keyframes clickBounce {
+0%, 100% { transform: scale(1) rotate(0deg); }
+25% { transform: scale(1.3) rotate(-10deg); }
+50% { transform: scale(1.2) rotate(10deg); }
+75% { transform: scale(1.3) rotate(-5deg); }
+}
+
+.linkedin {
+background: linear-gradient(135deg, rgba(0, 132, 255, 0.3), rgba(0, 68, 132, 0.3));
+border: 1px solid rgba(0, 132, 255, 0.4);
+}
+
+.linkedin:hover {
+background: linear-gradient(135deg, rgba(0, 132, 255, 0.5), rgba(0, 68, 132, 0.5));
+box-shadow: 0 10px 40px rgba(0, 132, 255, 0.4);
+}
+
+.instagram {
+background: linear-gradient(135deg, rgba(240, 148, 51, 0.3), rgba(188, 24, 136, 0.3));
+border: 1px solid rgba(240, 148, 51, 0.4);
+}
+
+.instagram:hover {
+background: linear-gradient(135deg, rgba(240, 148, 51, 0.5), rgba(188, 24, 136, 0.5));
+box-shadow: 0 10px 40px rgba(240, 148, 51, 0.4);
+}
+
+.website {
+background: linear-gradient(135deg, rgba(173, 129, 26, 0.3), rgba(218, 165, 32, 0.3));
+border: 1px solid rgba(218, 165, 32, 0.4);
+}
+
+.website:hover {
+background: linear-gradient(135deg, rgba(173, 129, 26, 0.5), rgba(218, 165, 32, 0.5));
+box-shadow: 0 10px 40px rgba(218, 165, 32, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+body {
+padding: 15px 12px;
+}
+
+.container {
+max-width: 100%;
+}
+
+h1 { 
+font-size: 28px;
+margin-bottom: 8px;
+}
+
+.job-title { 
+font-size: 16px;
+letter-spacing: 1.5px;
+}
+
+.avatar { 
+width: 110px;
+height: 110px;
+margin-bottom: 20px;
+}
+
+.contact-info {
+padding: 20px 15px;
+margin-top: 20px;
+gap: 12px;
+}
+
+.contact-item {
+font-size: 14px;
+gap: 10px;
+}
+
+.contact-item i {
+font-size: 18px;
+}
+
+.links {
+gap: 14px;
+}
+
+.link-button {
+padding: 16px 20px;
+font-size: 16px;
+gap: 12px;
+}
+
+.link-button i {
+font-size: 22px;
+}
+}
+
+/* Petits téléphones */
+@media (max-width: 400px) {
+h1 { 
+font-size: 24px;
+}
+
+.job-title { 
+font-size: 15px;
+}
+
+.avatar { 
+width: 100px;
+height: 100px;
+}
+
+.contact-item {
+font-size: 13px;
+}
+
+.link-button {
+padding: 14px 18px;
+font-size: 15px;
+}
+}
+</style>
+</head>
+<body>
+<div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+<div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+<div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+<div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+<div class="particle" style="left: 50%; animation-delay: 5s;"></div>
+<div class="particle" style="left: 60%; animation-delay: 3s;"></div>
+<div class="particle" style="left: 70%; animation-delay: 6s;"></div>
+<div class="particle" style="left: 80%; animation-delay: 2.5s;"></div>
+<div class="particle" style="left: 90%; animation-delay: 4.5s;"></div>
+
+<div class="container">
+<div class="profile">
+<div class="avatar">
+<div class="avatar-inner">
+<img id="avatarImage" src="" alt="Photo de profil">
+</div>
+</div>
+<h1 id="nomPersonne"></h1>
+<p class="job-title" id="metierPersonne"></p>
+<div class="contact-info">
+<div class="contact-item">
+<i class="fas fa-envelope"></i>
+<span id="emailPersonne"></span>
+</div>
+<div class="contact-item">
+<i class="fas fa-phone"></i>
+<span id="telephonePersonne"></span>
+</div>
+</div>
+</div>
+<div class="links">
+<a id="linkedinLink" href="" class="link-button linkedin" target="_blank">
+<i class="fab fa-linkedin-in"></i>
+<span>LinkedIn</span>
+</a>
+<a id="instagramLink" href="" class="link-button instagram" target="_blank">
+<i class="fab fa-instagram"></i>
+<span>Instagram</span>
+</a>
+<a id="siteWebLink" href="" class="link-button website" target="_blank">
+<i class="fas fa-globe"></i>
+<span>Site Web</span>
+</a>
+    </div>
+</div>
+
+<script>
+// Injection automatique des variables
+document.title = CONFIG.titreOnglet;
+document.getElementById('nomPersonne').textContent = CONFIG.nom;
+document.getElementById('metierPersonne').textContent = CONFIG.metier;
+document.getElementById('emailPersonne').textContent = CONFIG.email;
+document.getElementById('telephonePersonne').textContent = CONFIG.telephone;
+document.getElementById('avatarImage').src = CONFIG.imageUrl;
+document.getElementById('avatarImage').alt = 'Photo de ' + CONFIG.nom;
+document.getElementById('linkedinLink').href = CONFIG.linkedinUrl;
+document.getElementById('instagramLink').href = CONFIG.instagramUrl;
+document.getElementById('siteWebLink').href = CONFIG.siteWebUrl;
+
+// Liens cliquables pour email et téléphone
+document.getElementById('emailLink').href = 'mailto:' + CONFIG.email;
+document.getElementById('phoneLink').href = 'tel:' + CONFIG.telephone.replace(/\s/g, '');
+</script>
+</body>
+</html>
